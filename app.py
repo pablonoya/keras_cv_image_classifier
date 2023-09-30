@@ -150,6 +150,9 @@ def plot_results(probs, classes):
 
 def main():
     st.title("Clasificación de razas de perros")
+    st.markdown(
+        "Repositorio en  [GitHub](https://github.com/pablonoya/keras_cv_image_classifier)"
+    )
     st.subheader("Carga un modelo exportado")
 
     model_file = st.file_uploader("Sube un zip del modelo exportado", type="zip")
