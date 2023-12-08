@@ -149,19 +149,24 @@ def plot_results(probs, classes):
 
 
 def main():
-    st.title("Clasificación de razas de perros")
+    st.title("Clasificación de razas de perritos 🐕")
     st.markdown(
         "Repositorio en  [GitHub](https://github.com/pablonoya/keras_cv_image_classifier)"
     )
-    st.subheader("Carga un modelo exportado")
+    load_custom_model = st.toggle("Cargar un modelo propio", value=False)
+    model_file = open("final_model.zip", "rb")
 
-    model_file = st.file_uploader("Sube un zip del modelo exportado", type="zip")
+    if load_custom_model:
+        st.subheader("Carga un modelo exportado ⬆")
+
+        model_file = st.file_uploader("Sube un zip del modelo exportado", type="zip")
+
     if not model_file:
         return
 
     model = load_model(model_file)
 
-    st.subheader("Carga una imagen")
+    st.subheader("Carga una imagen 🖼")
     image_file = st.file_uploader("Sube la imagen de un perrito")
     if not image_file:
         return
